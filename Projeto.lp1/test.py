@@ -30,7 +30,13 @@ def cadastro():
     
         if validar_cpf(cpf):
             nome = input('Nome completo: ')
-            matricula = int(input('Matrícula: '))
+            while True:
+                matricula = input('Matrícula: ')
+                if len(matricula) == 11 and matricula.isdigit():
+                    break
+                else:
+                    print('Matrícula inválida. A matrícula deve conter exatamente 11 dígitos numéricos.')
+
             curso = input('Curso: ')
             nasc = input('Data de nascimento: ')
             break
@@ -39,6 +45,9 @@ def cadastro():
             
 
 
+            
 # Chame a função de cadastro
 cadastro()
+ 
+ 
  
