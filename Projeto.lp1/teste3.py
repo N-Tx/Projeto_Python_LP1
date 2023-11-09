@@ -20,6 +20,10 @@ def validar_cpf(cpf):
         digito2 = 0
     return digito2 == int(cpf[10])
 def cadastro(cadastros):
+    print('='*27)
+    print('  Cadastro RuralSportClub')
+    print('='*27)
+    print()
     while True:
         cpf = input('CPF: ')
     
@@ -92,28 +96,30 @@ def visualizar_quadra(quadra):
             print(f'Horário das {horario} reservado por {nome}')
 cadastros = {}  # Dicionário para armazenar os cadastros
 quadra_disponivel = {}  # Dicionário para armazenar a disponibilidade da quadra
+
+cadastro(cadastros)
+
+print('#'*30)
 while True:
+    
     print("\nMenu:")
-    print("1. Cadastro de Pessoa")
-    print("2. Visualizar Cadastros")
-    print("3. Reservar Horário na Quadra")
-    print("4. Visualizar Reservas na Quadra")
-    print("5. Sair")
+    print('#'*30)
+    print("1. Reservar Horário na Quadra")
+    print("2. Visualizar Reservas na Quadra")
+    print("3. Sair")
+    print('#'*30)
     opcao = input("Escolha uma opção: ")
+    
     if opcao == '1':
-        cadastro(cadastros)
-    elif opcao == '2':
-        mostrar_cadastros(cadastros)
-    elif opcao == '3':
         cpf_procurado = input('Digite o CPF da pessoa que deseja reservar um horário na quadra: ')
         if cpf_procurado in cadastros:
             nome = cadastros[cpf_procurado]["Nome"]
             reservar_quadra(quadra_disponivel, nome)
         else:
             print('CPF não encontrado no banco de dados.')
-    elif opcao == '4':
+    elif opcao == '2':
         visualizar_quadra(quadra_disponivel)
-    elif opcao == '5':
+    elif opcao == '3':
         break
     else:
         print("Opção inválida. Por favor, escolha uma opção válida.")
