@@ -19,6 +19,69 @@ def validar_cpf(cpf):
     if digito2 == 10:
         digito2 = 0
     return digito2 == int(cpf[10])
+
+
+
+def entrada_adm():
+    login_senha = {'user': 'admin', 'senha': 'vamo'}
+    
+    while True:
+        print('=' * 27)
+        print('  RuralSportClub')
+        print('=' * 27)
+
+        user = input('Entrar como admin (A) ou estudante (E):').upper()
+
+        if user == 'A':
+            print('Entrada ADMIN')
+            usuario = input('User: ')
+            senha = input('Senha: ')
+
+            print(f'Usuário inserido: {usuario}')
+            print(f'Senha inserida: {senha}')
+
+            if usuario == login_senha['user'] and senha == login_senha['senha']:
+                print('Bem-vindo adm')
+                print("\nMenu ADM:")
+                print('#'*30)
+                print("1. Vizualizar cadastro ")
+                print("2. Visualizar Reservas na Quadra")
+                print("3. Sair")
+                print('#'*30)
+                
+                opc = input('O que deseja fazer: ')
+                
+                
+                if opc == '1':
+                    # Coloque a lógica para visualizar cadastros aqui
+                    print("Visualizando cadastros...")
+                elif opc == '2':
+                    # Coloque a lógica para visualizar reservas na quadra aqui
+                    print("Visualizando Reservas na Quadra...")
+                elif opc == '3':
+                    print('Saindo...')
+                    break
+                else:
+                    print('Opção inválida. Tente novamente.')
+
+            else:
+                print('Login incorreto')
+
+        elif user == 'E':
+            print('Entrada ESTUDANTE')
+            return 'estudante'
+
+        else:
+            print('Opção inválida. Tente novamente.')
+
+# Exemplo de chamada da função
+entrada_adm()
+
+        
+    
+
+    
+    
 def cadastro(cadastros):
     print('='*27)
     print('  Cadastro RuralSportClub')
@@ -62,7 +125,7 @@ def procurar_cadastro(cadastros, cpf_procurado):
         print('CPF não encontrado no banco de dados.')
 def reservar_quadra(quadra, nome):
     horario = input('Digite o horário desejado para a quadra (somente números): ')
-    horario = int(horario)  # Converte o horário para um número inteiro
+    horario = (horario)  # Converte o horário para um número inteiro
     #tentativa de nao deixar a pessoa reservar o mesmo horario
     #escopo (nao vamos adicionar dia pra reservar apenas a hora do dia, com a ideia que abrirá o app so no dia pra reservar de manha ate a noite prentendemos colocar hora como das8 as 21 q pode ser feita a reserva
     # )
@@ -102,7 +165,7 @@ cadastro(cadastros)
 print('#'*30)
 while True:
     
-    print("\nMenu:")
+    print("\nMenu aluno :")
     print('#'*30)
     print("1. Reservar Horário na Quadra")
     print("2. Visualizar Reservas na Quadra")
