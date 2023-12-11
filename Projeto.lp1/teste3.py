@@ -23,7 +23,7 @@ def validar_cpf(cpf):
 
 
 def entrada_adm():
-    login_senha = {'user': 'admin', 'senha': 'vamo'}
+    login_senha = {'user': 'admin', 'senha': 'rural'}
     
     while True:
         print('=' * 27)
@@ -37,11 +37,12 @@ def entrada_adm():
             usuario = input('User: ')
             senha = input('Senha: ')
 
-            print(f'Usuário inserido: {usuario}')
-            print(f'Senha inserida: {senha}')
+            
 
             if usuario == login_senha['user'] and senha == login_senha['senha']:
+                print('*'*14)
                 print('Bem-vindo adm')
+                print('*'*14)
                 print("\nMenu ADM:")
                 print('#'*30)
                 print("1. Vizualizar cadastro ")
@@ -55,6 +56,7 @@ def entrada_adm():
                 if opc == '1':
                     # Coloque a lógica para visualizar cadastros aqui
                     print("Visualizando cadastros...")
+                    
                 elif opc == '2':
                     # Coloque a lógica para visualizar reservas na quadra aqui
                     print("Visualizando Reservas na Quadra...")
@@ -99,14 +101,14 @@ def cadastro(cadastros):
                 else:
                     print('Matrícula inválida. A matrícula deve conter exatamente 11 dígitos numéricos.')
             curso = input('Curso: ')
-            nasc = input('Data de nascimento: ')
+            num = input('Número pra contato (ddd): ')
             
             # Crie um dicionário para armazenar os detalhes do cadastro
             cadastro_dict = {
                 'Nome': nome,
                 'Matrícula': matricula,
                 'Curso': curso,
-                'Data de Nascimento': nasc
+                'num_contato': num
             }
             
             # Armazene o dicionário de detalhes do cadastro usando o CPF como chave
